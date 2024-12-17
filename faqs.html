@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #1c3144;
+    margin: 0;
+    padding: 0;
+}
+.faq-container {
+    max-width:100%;
+    margin: 50px auto;
+    background-color: rgba(231, 225, 225, 0.751);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* FAQ item styles */
+.faq-item {
+    margin-bottom: 10px;
+}
+
+/* Question button style */
+.faq-question {
+    width: 100%;
+    padding: 15px;
+    background-color: #1c3144;
+    color: white;
+    border: none;
+    text-align: left;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.faq-question:hover {
+    background-color: #114470;
+}
+
+/* Answer style */
+.faq-answer {display: none;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-left: 3px solid #1c3144;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Show answer when active */
+.faq-item:hover .faq-answer {
+    display: block;
+}
+    </style>
+</head>
+<body>
+    <div class="faq-container">
+        <div class="faq-item">
+         <button class="faq-question"> What is the use of PromptPath ? </button>
+         <div class="faq-answer">
+        <p> 1.PromtPath helps you to choose the correct path, helps you to reach your destination with 
+            the correct and shortest path without any hindrance.<br>
+            2. This website helps you to know about the location with the help of local reviews
+            on pros and cons of the place.
+        </p>
+         </div>
+        </div>
+         <div class="faq-item">
+          <button class="faq-question">Why to choose promtpath for your navigation solution ?</button>
+          <div class="faq-answer">
+        <p> 1 Because it provides ontime situation of road including the details like road under 
+            construction, accident occurred, port holes ,etc. <br>
+            2. It helps to choose a place by knowing its
+             review pros and cons etc.
+        </p>
+         </div>
+         </div>
+        </div>
+</body>
+</html>
