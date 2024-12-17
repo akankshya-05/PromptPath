@@ -5,6 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PromptPath</title>
     <link rel="stylesheet" href="minorproject.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function () {
+    // Open the side menu
+    $('#menu-toggle').click(function () {
+        $('#side-menu').css('right', '0');
+    });
+
+    // Close the side menu
+    $('#close-menu').click(function () {
+        $('#side-menu').css('right', '-300px');
+    });
+
+    // Close the menu when clicking outside
+    $(document).click(function (e) {
+        if (!$(e.target).closest('#side-menu, #menu-toggle').length) {
+            $('#side-menu').css('right', '-300px');
+        }
+    });
+});
+</script>
 </head>
 <body>
     <header>
@@ -21,5 +42,18 @@
     <div class="hero">
         <div class="hero"></div>
     </div>
+    <button id="menu-toggle">☰ Menu</button>
+ <div id="hover-area"></div>
+    <div id="side-menu">
+        <button id="close-menu">✖</button>
+        <ul>
+            <li><a href="#"><p>Home</p></a></li>
+            <li><a href="#"><p>About</p></a></li>
+            <li><a href="#"><p>Services</p></a></li>
+            <li><a href="#"><p>Contact</p></a></li>
+        </ul>
+    </div>
+    <script src="script.js"></script>
+
 </body>
 </html>
