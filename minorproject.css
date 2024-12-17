@@ -96,3 +96,76 @@ background-size: cover;
         background-image: url("map.jpg");
         background-size: contain;
     }
+#menu-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+#menu-toggle:hover{
+    transform: translateY(-2px);
+    background-color: #1c3144;
+}
+
+li:hover{
+    transform: translateY(-2px);
+}
+li:hover p{
+    color: pink;
+}
+
+#side-menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100%;
+    background-color: #333;
+    color: #fff;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+#hover-area {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 100%;
+    background: transparent;
+    z-index: 998;
+}
+
+#side-menu ul {
+    list-style: none;
+    padding: 2;
+    margin: 50px 0 0;
+}
+
+#side-menu ul li {
+    margin: 20px 0;
+}
+
+#side-menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+#side-menu #close-menu {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: none;
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
