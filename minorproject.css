@@ -279,3 +279,33 @@ background-size: cover;
     text-decoration: underline;
 }
 
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh; 
+    overflow: auto;   
+}
+.item {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width:100%;
+}
+.item img {
+    width: 650px;
+    height: 500px;
+    margin-right: 20px;
+    border-radius: 8px;
+}
+.quote {
+    max-width: 400px;
+    font-size: 18px;
+    font-style: italic;
+    color: #555;
+}
