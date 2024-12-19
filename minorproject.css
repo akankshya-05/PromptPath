@@ -21,7 +21,7 @@ height: 45px;
 width: 130px;
 margin-left: 5px;
 margin-top: 10px;
-background-image: url("logo.jpg");
+background-image: url("logo.png");
 background-size: cover;
 }
 .home{
@@ -66,7 +66,7 @@ background-size: cover;
             position: fixed;
             top: 20px;
             right: 20px;
-            background-color: #333;
+            background-color:  #1c3144;
             color: #fff;
             border: none;
             padding: 10px 20px;
@@ -77,20 +77,20 @@ background-size: cover;
         
         #menu-toggle:hover{
             transform: translateY(-2px);
-            background-color: #1c3144;
+            background-color:  #2d6a9f;
         }
         
         li:hover{
             transform: translateY(-2px);
         }
         li:hover p{
-            color: pink;
+            color: #2d6a9f;
         }
         
         #side-menu {
             position: fixed;
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             border-radius: 5px;
             top: 70px;
             right: -300px;
@@ -118,7 +118,8 @@ background-size: cover;
         #side-menu ul li a {
             color: #fff;
             text-decoration: none;
-            font-size: 18px;margin-left: 20px;
+            font-size: 18px;
+            margin-left: 20px;
         }
         
         #side-menu #close-menu {
@@ -130,6 +131,9 @@ background-size: cover;
             border: none;
             font-size: 20px;
             cursor: pointer;
+        }
+        #p1{
+            margin-left:10px;
         }
 .contactus{
     background-color: #1c3144;
@@ -183,13 +187,14 @@ background-size: cover;
     margin: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #007bff;
+    background-color: #1c3144;
     color: white;
     transition: background-color 0.3s;
   }
   
   .btn:hover {
-    background-color: #0056b3;
+    background-color: #2d6a9f;
+    transform: translateY(-2px);
   }
   
   /* Modal Styles */
@@ -206,7 +211,7 @@ background-size: cover;
   }
   
   .modal-content {
-    background-color: white;
+    background-color: #1c3144;
     padding: 20px;
     border-radius: 8px;
     width: 400px;
@@ -220,18 +225,20 @@ background-size: cover;
     font-size: 25px;
     cursor: pointer;
   }
-  
+
   /* Form Styles */
   .form {
     display: flex;
     flex-direction: column;
   }
-  
   .form input {
     padding: 10px;
     margin: 10px 0;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #1c3144;
+  }
+  #signid{
+    color: aliceblue;
   }
   
   button[type="submit"] {
@@ -252,7 +259,8 @@ background-size: cover;
     list-style: none;
     padding-left: 20px;
     margin: 0;
-    background-color: #444;
+    background-image: url("navbg.jpg");
+    background-size: cover;
 }
 
 .dropdown-menu li {
@@ -267,4 +275,3 @@ background-size: cover;
 .dropdown-menu li a:hover {
     text-decoration: underline;
 }
-
