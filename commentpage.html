@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment Page</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        textarea {
+            width: 100%;
+            height: 80px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: none;
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background-color: #007BFF;
+            color: #fff;
+        }
+        .btn-report {
+            background-color: #FFC107;
+            color: #fff;
+        }
+        .btn-leave {
+            background-color: #dc3545;
+            color: #fff;
+        }
+        .comments {
+            margin-top: 20px;
+        }
+        .comment {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: #f9f9f9;
+            position: relative;
+        }
+        .report {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 12px;
+            color: #ff6f61;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Comments Page</h1>
+        <textarea id="comment-box" placeholder="Write your comment..."></textarea>
+        <button class="btn-primary" id="submit-comment">Post Comment</button>
+        <button class="btn-leave" id="leave-page">Leave Page</button>
+        
+        <div class="comments" id="comments-section">
+            <h3>Comments</h3>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Submit a comment
+            $('#submit-comment').on('click', function () {
+                const commentText = $('#comment-box').val().trim();
+                if (commentText) {
+                    const commentHtml = `
+                        <div class="comment">
+                            <p>${commentText}</p>
+                            <span class="report">Report</span>
+                        </div>
+                    `;
+                    $('#comments-section').append(commentHtml);
+                    $('#comment-box').val('');
+                } else {
+                    alert('Please enter a comment!');
+                }
+            });
+
+            // Report a comment
+            $(document).on('click', '.report', function () {
+                alert('Comment has been reported.');
+            });
+
+            // Leave the page
+            $('#leave-page').on('click', function () {
+                window.location.href = "https://example.com"; // Replace with your desired URL
+            });
+        });
+    </script>
+</body>
+</html>
