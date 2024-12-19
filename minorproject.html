@@ -211,6 +211,10 @@ $(document).ready(function () {
     alert('Signed Up');
     $('#modal').fadeOut();
   });
+     $(".dropdown-toggle").click(function (e) {
+        e.preventDefault(); // Prevent the default anchor behavior
+        $(this).next(".dropdown-menu").slideToggle();
+    });
 });
 </script>
 </head>
@@ -234,10 +238,34 @@ $(document).ready(function () {
     <div id="side-menu">
         <button id="close-menu">✖</button>
         <ul>
-            <li><a href="#"><p>Home</p></a></li>
-            <li><a href="#"><p>About</p></a></li>
-            <li><a href="#"><p>Services</p></a></li>
-            <li><a href="#"><p>Contact</p></a></li>
+            <li class="nav-item dropdown"><a href="#" class="dropdown-toggle"><p>On-Time Map</p></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">View Live Map</a></li>
+                <li><a href="#">Real Time Data</a></li>
+                <li><a href="#">Location Tracker</a></li>
+            </ul>
+            </li>
+            <li class="nav-item dropdown"><a href="#" class="dropdown-toggle"><p>Define Your Location</p></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Set Current Location</a></li>
+                <li><a href="#">Search Location</a></li>
+                <li><a href="#">Location Settings</a></li>
+            </ul>
+            </li>
+            <li class="nav-item dropdown"><a href="#" class="dropdown-toggle"><p>Review Your Location </p></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Rate Location</a></li>
+                <li><a href="#">View Reviews</a></li>
+                <li><a href="#">Add Photos</a></li>
+            </ul>
+            </li>
+            <li class="nav-item dropdown"><a href="#" class="dropdown-toggle"><p>Comment On Location</p></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Leave Comments</a></li>
+                <li><a href="#">Read Comments</a></li>
+                <li><a href="#">Report Issues</a></li>
+            </ul>
+            </li>
         </ul>
     </div>
     <div class="button-container">
