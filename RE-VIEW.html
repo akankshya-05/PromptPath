@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Your Location</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #2d6155;
+        padding: 20px;
+        background-image: url('https://i.pinimg.com/736x/77/73/8b/77738b9e3336816e1c532e09e1861ebc.jpg');
+        background-size: cover;
+        
+        background-position: center;
+        height: 90vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .container {
+        display: flex;
+        background-color: #638ce3;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 70%;
+        max-width: 1200px;
+        height: 70%;
+        border-radius: 10px;
+    }
+
+    .left-image {
+        width: 40%;
+        background-image: url('promtpath.jpg'); /* Replace with your desired image URL */
+        background-size: cover;
+        background-position: center;
+        border-radius: 10px;
+    }
+
+    .content {
+        width: 60%;
+        padding-left: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .rating, .review-section, .photo-section {
+        margin-bottom: 20px;
+    }
+    
+    .stars {
+        font-size: 30px;
+        cursor: pointer;
+    }
+    
+    .star {
+        color: #ccc;
+    }
+    
+    .star.selected {
+        color: rgb(240, 206, 11);
+    }
+    
+    textarea {
+        width: 100%;
+        height: 100px;
+        margin-top: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    
+    button {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-top: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #45a049;
+    }
+    
+    #photoPreview img {
+        width: 100px;
+        margin-top: 10px;
+        display: inline-block;
+    }
+
+    /* Optional styling for the image below the container */
+    .additional-image {
+        width: 100%;
+        display: block;
+        margin-top: 20px;
+    }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Left Image -->
+        <div class="left-image"></div>
+        
+        <!-- Content Section -->
+        <div class="content">
+            <h1>Review Your Location</h1>
+            
+            <!-- Rating Section -->
+            <div class="rating">
+                <h3>Rate the Location:</h3>
+                <div class="stars">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+                <p>Your Rating: <span id="ratingValue">0</span>/5</p>
+            </div>
+
+            <!-- Review Section -->
+            <div class="review-section">
+                <h3>Reviews:</h3>
+                <ul id="reviewsList"></ul>
+                <textarea id="reviewText" placeholder="Write a review..."></textarea>
+               
+            </div>
+
+            <!-- Photo Section -->
+            <div class="photo-section">
+                <h3>Upload a Photo:</h3>
+                <input type="file" id="photoInput" accept="image/*">
+                <!--<button id="uploadPhoto">Upload Photo</button>-->
+                <div id="photoPreview"></div>
+            </div>
+         <button id="submitReview">Submit Review</button>
+
+        </div>
+    </div>
+
+    <script>
+    $(document).ready(function() {
+        var ratingValue = 0;
+
+        // Hover effect for star preview
+        $('.star').on('mouseover', function() {
+            var rating = $(this).data('value');
+            highlightStars(rating);
+        });
+
+        // Reset the stars when mouse leaves
+        $('.star').on('mouseleave', function() {
+            highlightStars(ratingValue);  // Restore the highlighted stars to current rating
+        });
+
+        // Click event to select the rating
+        $('.star').on('click', function() {
+            ratingValue = $(this).data('value');
+            $('#ratingValue').text(ratingValue);  // Display the selected rating
+            highlightStars(ratingValue);  // Apply the selected rating visually
+        });
+
+        // Function to highlight the stars based on rating
+        function highlightStars(rating) {
+            $('.star').each(function() {
+                if ($(this).data('value') <= rating) {
+                    $(this).addClass('selected');  // Add selected class for rating
+                } else {
+                    $(this).removeClass('selected');  // Remove selected class for non-rated stars
+                }
+            });
+        }
+
+        // Optional: Handle submit review logic (you can add your own submission logic here)
+        $('#submitReview').on('click', function() {
+            var reviewText = $('#reviewText').val();
+            if (reviewText) {
+                $('#reviewsList').append('<li>' + reviewText + '</li>');
+                $('#reviewText').val('');  // Clear the review text after submission
+            }
+        });
+    });
+    </script>
+
+</body>
+</html>
