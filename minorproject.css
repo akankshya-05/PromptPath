@@ -24,7 +24,7 @@ height: 45px;
 width: 130px;
 margin-left: 5px;
 margin-top: 10px;
-background-image: url("logo.png");
+background-image: url("extralogo.jpg");
 background-size: cover;
 }
 .home{
@@ -423,4 +423,3 @@ footer {
 .footer-section a:hover {
     color: #fff;
 }
-
