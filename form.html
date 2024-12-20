@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="forms.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+    $('#submit-btn').on('click', function (e) {
+        e.preventDefault();
+
+        var firstName = $('#first-name').val();
+        var lastName = $('#last-name').val();
+        var email = $('#email').val();
+        var phone = $('#phone').val();
+        var query = $('#query').val();
+
+        // Simple validation to ensure fields are filled out
+        if (!firstName || !lastName || !email || !phone || !query) {
+            alert("Please fill out all fields.");
+        } else {
+            alert("Thank you for contacting us,we will reach out to you " + firstName + "!");
+        }
+    });
+});
+    </script>
+</head>
+<body>
+    <div class="contact-form-container">
+        <h2>Contact Us</h2>
+        <form id="contact-form">
+            <div class="form-group">
+                <label for="first-name">First Name<sup style="color: red;">*</sup></label>
+                <input type="text" id="first-name" name="first-name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="last-name">Last Name<sup style="color: red;">*</sup></label>
+                <input type="text" id="last-name" name="last-name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email<sup style="color: red;">*</sup></label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number<sup style="color: red;">*</sup></label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="query">Enter Your Query<sup style="color: red;">*</sup></label>
+                <textarea id="query" name="query" rows="4" required></textarea>
+            </div>
+
+            <a href="#" id="submit-btn" class="submit-btn">Submit</a>
+        </form>
+    </div>
+</body>
+</html>
