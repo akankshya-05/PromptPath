@@ -3,108 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Location Tracker</title>
-    <!-- jQuery library -->
+    <title>On-Time Map</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #0d151c;
+            text-align: center;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            background-color: #0d1714;
         }
-        .wrap-input-17 * {
- box-sizing: border-box;
- 
-}
-
-.wrap-input-17 .search-box{
- width: fit-content;
- height: fit-content;
- position: relative;
-}
-
-.wrap-input-17 .input-search{
- height: 50px;
- width: 50px;
- border-style: none;
- padding: 10px;
- font-size: 18px;
- letter-spacing: 2px;
- outline: none;
- border-radius: 25px;
- transition: all .5s ease-in-out;
- background-color: 
-#fff;
- padding-right: 40px;
- color:#fff;
- 
-}
-.wrap-input-17 .input-search::placeholder{
- color:
-rgba(255,255,255,.5);
- font-size: 18px;
- letter-spacing: 2px;
- font-weight: 100;
-
-}
-.wrap-input-17 .btn-search{
- width: 50px;
- height: 50px;
- border-style: none;
- font-size: 20px;
- font-weight: bold;
- outline: none;
- cursor: pointer;
- border-radius: 50%;
- position: absolute;
- right: 0px;
- color:
-#ffffff ;
- background-color:
-transparent;
- pointer-events: painted;  
-}
-.wrap-input-17 .btn-search:focus ~ .input-search{
- width: 800px;
- border-radius: 0px;
- background-color: 
-transparent;
- border-bottom:1px solid 
-rgba(255,255,255,.5);
- transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
-}
-.wrap-input-17 .input-search:focus{
- width: 800px;
- border-radius: 0px;
- background-color: transparent;
- border-bottom:1px solid rgba(255,255,255,.5);
- transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
-}
-        
-        /* Style for the image below the container */
-        #location-map {
-            width: 100%;
-            display: block;
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            font-size: 24px;
+        }
+        .container {
             margin-top: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            height: 580px;
-            overflow-y: hidden;
-
         }
-
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 18px;
+            color: white;
+            background-color: #3924c0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        #map {
+            height: 500px;
+            width: 100%;
+            margin-top: 20px;
+            display: none;
+            background-image: url("mapimg.png");
+            background-size:contain;
+        }
+        #map-image {
+            max-width: 100%;
+            height: auto;
+            width: max-content;
+            margin-top: 20px;
+            display: none;
+            background-size: contain;
+        }
     </style>
 </head>
 <body>
+
+<header>
+    On-Time Map 
+</header>
+
 <div class="container">
-        <div class="wrap-input-17"><div class="search-box">
-            <button class="btn-search" >🔍</button>
-            <input type="text" class="input-search" placeholder="Type to Search...">
-          </div>
-          </div>
-    </div>
+    <button class="button" id="view-live-map">View Live Map</button>
+    <button class="button" id="view-real-time-data">Real-Time Data</button>
+    <button class="button" id="track-location">Location Tracker</button>
 </div>
-<img id="location-map" src="https://i.pinimg.com/1200x/c1/e4/03/c1e4036bc576de87a7ff0e0de811c1f5.jpg" alt="Delhi Transport Map">
+
+<div id="map"></div>
+
+<script>
+    $(document).ready(function() {
+        // Handle "View Live Map" button click
+        $('#view-live-map').click(function() {
+            // Hide map container and show map image
+            $('#map').hide();
+            $('#map-image').show();
+        });
+
+        // Handle "Real-Time Data" button click
+        $('#view-real-time-data').click(function() {
+            alert("Displaying Real-Time Data. Integrate with your data source.");
+            // You can add real-time data fetching code here, e.g., using APIs
+        });
+
+        // Handle "Location Tracker" button click
+        $('#track-location').click(function() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const lat = position.coords.latitude;
+                    const lng = position.coords.longitude;
+                    alert("Your location: Latitude: " + lat + ", Longitude: " + lng);
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        });
+        $('#view-live-map').click(function(){
+            $('#map').show();
+        });
+    });
+</script>
+
 </body>
 </html>
